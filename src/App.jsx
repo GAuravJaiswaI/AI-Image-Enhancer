@@ -3,6 +3,8 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
 import UploadSection from './components/sections/UploadSection';
+import Features from './components/sections/Features';
+import Pricing from './components/sections/Pricing';
 import ResultSection from './components/sections/ResultSection';
 import { enhanceImageAPI } from './lib/enhanceImageAPI';
 
@@ -53,7 +55,11 @@ const App = () => {
             onReset={handleReset}
           />
         ) : (
-          <UploadSection onImageUpload={handleImageUpload} />
+          <>
+            <UploadSection onImageUpload={handleImageUpload} />
+            <Features />
+            <Pricing />
+          </>
         )}
       </main>
 
