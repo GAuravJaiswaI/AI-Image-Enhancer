@@ -1,19 +1,63 @@
-import React from "react";
-import Home from "./components/Home";
+import React, { useState } from 'react';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import Hero from './components/sections/Hero';
+import UploadSection from './components/sections/UploadSection';
+import ResultSection from './components/sections/ResultSection';
+import { enhanceImageAPI } from './lib/enhanceImageAPI';
 
 const App = () => {
+  const [originalImage, setOriginalImage] = useState(null);
+  const [enhancedImage, setEnhancedImage] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const handleImageUpload = async (file) => {
+    // Create local preview URL
+    const objectUrl = URL.createObjectURL(file);
+    setOriginalImage(objectUrl);
+    setEnhancedImage(null);
+    setLoading(true);
+
+    try {
+      // Call API
+      const result = await enhanceImageAPI(file);
+      // The API returns { image: "url" }
+      setEnhancedImage(result?.image);
+    } catch (error) {
+      console.error("Enhancement failed:", error);
+      alert("Failed to enhance image. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleReset = () => {
+    setOriginalImage(null);
+    setEnhancedImage(null);
+    setLoading(false);
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 py-8 px-4">
-      <div className="text-center mb-8">
-        <h1 className="text-5xl font-bold text-gray-800 mb-2">
-          AI Image Enhancer
-        </h1>
-        <p className="text-lg text-gray-500">
-          Upload your own image and let AI enhance it in a second..
-        </p>
-      </div>
-      <Home />
-      <div className="text-sm text-gray-500 mt-6">Powered by AI</div>
+    <div className="min-h-screen bg-white font-sans text-gray-900 flex flex-col">
+      <Header />
+
+      <main className="flex-grow">
+        <Hero />
+
+        {/* If we have an original image, show the result section, otherwise show upload */}
+        {originalImage ? (
+          <ResultSection
+            originalImage={originalImage}
+            enhancedImage={enhancedImage}
+            loading={loading}
+            onReset={handleReset}
+          />
+        ) : (
+          <UploadSection onImageUpload={handleImageUpload} />
+        )}
+      </main>
+
+      <Footer />
     </div>
   );
 };
