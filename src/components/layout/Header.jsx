@@ -19,7 +19,6 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm" className="hidden sm:inline-flex">Sign In</Button>
           <Button size="sm">Get Started</Button>
         </div>
       </div>
