@@ -54,7 +54,7 @@ const Header = ({ onGetStarted }) => {
           <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-lg">AI</span>
           </div>
-          <span className="text-base sm:text-xl font-bold text-gray-900">Enhancer</span>
+          <span className="text-base sm:text-xl font-bold text-gray-900">Image Enhancer</span>
         </div>
 
         {/* Desktop Navigation */}
