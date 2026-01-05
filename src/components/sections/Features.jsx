@@ -11,7 +11,7 @@ const FeatureCard = ({ title, description, color, icon: Icon, delay }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
       className={cn(
-        "relative overflow-hidden rounded-3xl p-8 flex flex-col justify-between min-h-[320px] group transition-all duration-300 hover:shadow-xl",
+        "relative overflow-hidden rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between min-h-[280px] sm:min-h-[320px] group transition-all duration-300 hover:shadow-xl",
         color === 'yellow' && "bg-[#F3F46E] text-black",
         color === 'blue' && "bg-[#3B82F6] text-white",
         color === 'white' && "bg-white border border-gray-200 text-black"
@@ -20,12 +20,12 @@ const FeatureCard = ({ title, description, color, icon: Icon, delay }) => {
       <div className="z-10">
         <div className="mb-6">
           {/* Typography 'Aa' simulation or Icon */}
-          <Icon className={cn("w-12 h-12", color === 'yellow' ? "text-black" : (color === 'blue' ? "text-white" : "text-black"))} strokeWidth={1.5} />
+          <Icon className={cn("w-10 h-10 sm:w-12 sm:h-12", color === 'yellow' ? "text-black" : (color === 'blue' ? "text-white" : "text-black"))} strokeWidth={1.5} />
         </div>
-        <h3 className={cn("text-4xl font-serif leading-tight mb-4", color === 'blue' ? "font-sans font-bold" : "font-serif italic")}>
+        <h3 className={cn("text-2xl sm:text-3xl md:text-4xl font-serif leading-tight mb-3 sm:mb-4", color === 'blue' ? "font-sans font-bold" : "font-serif italic")}>
           {title}
         </h3>
-        <p className={cn("text-lg opacity-80", color === 'blue' ? "text-blue-100" : "text-gray-700")}>
+        <p className={cn("text-base sm:text-lg opacity-80", color === 'blue' ? "text-blue-100" : "text-gray-700")}>
           {description}
         </p>
       </div>
@@ -54,27 +54,27 @@ const FeatureCard = ({ title, description, color, icon: Icon, delay }) => {
 
 const Features = () => {
   return (
-    <section id="features" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="features" className="py-12 sm:py-16 md:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-gray-100 text-xs font-semibold tracking-wide uppercase text-gray-500 mb-4">
+          <span className="inline-block py-1 px-2 sm:px-3 rounded-full bg-gray-100 text-xs font-semibold tracking-wide uppercase text-gray-500 mb-3 sm:mb-4">
             Inspirations
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-3 sm:mb-4 px-2">
              Devouring <span className="font-serif italic font-normal">Details</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-lg text-gray-600">
+          <p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 px-4">
             The platform's design is deeply inspired by modern minimalism.
             We focus on speed, precision, and privacy to deliver the best results.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           <FeatureCard
             title="Instant Speed"
             description="Process images in milliseconds with our optimized AI engine."

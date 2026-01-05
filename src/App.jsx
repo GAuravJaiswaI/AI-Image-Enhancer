@@ -5,6 +5,7 @@ import Hero from './components/sections/Hero';
 import UploadSection from './components/sections/UploadSection';
 import Features from './components/sections/Features';
 import Pricing from './components/sections/Pricing';
+import Blog from './components/sections/Blog';
 import ResultSection from './components/sections/ResultSection';
 import { enhanceImageAPI } from './lib/enhanceImageAPI';
 
@@ -41,12 +42,12 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 flex flex-col">
-      <Header />
+      <Header onGetStarted={handleReset} />
 
-      <main className="flex-grow">
+      <main className="grow">
         <Hero />
 
-        {/* If we have an original image, show the result section, otherwise show upload */}
+        {/* Show upload section or result section based on image state */}
         {originalImage ? (
           <ResultSection
             originalImage={originalImage}
@@ -55,12 +56,13 @@ const App = () => {
             onReset={handleReset}
           />
         ) : (
-          <>
-            <UploadSection onImageUpload={handleImageUpload} />
-            <Features />
-            <Pricing />
-          </>
+          <UploadSection onImageUpload={handleImageUpload} />
         )}
+
+        {/* Always show these sections below */}
+        <Features />
+        <Pricing />
+        <Blog />
       </main>
 
       <Footer />

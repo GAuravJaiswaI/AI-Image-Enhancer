@@ -59,7 +59,7 @@ const UploadSection = ({ onImageUpload }) => {
   };
 
   return (
-    <section className="container mx-auto px-4 -mt-20 relative z-20 mb-20">
+    <section id="upload" className="container mx-auto px-4 sm:px-6 -mt-10 sm:-mt-20 relative z-20 mb-12 sm:mb-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ const UploadSection = ({ onImageUpload }) => {
           <CardContent className="p-0">
             <div
               className={cn(
-                "relative border-2 border-dashed rounded-xl p-12 transition-all duration-200 flex flex-col items-center justify-center min-h-[400px] bg-white",
+                "relative border-2 border-dashed rounded-xl p-6 sm:p-8 md:p-12 transition-all duration-200 flex flex-col items-center justify-center min-h-[300px] sm:min-h-[400px] bg-white",
                 isDragging ? "border-blue-500 bg-blue-50" : "border-gray-200 hover:border-gray-300",
                 error ? "border-red-500 bg-red-50" : ""
               )}
@@ -85,19 +85,19 @@ const UploadSection = ({ onImageUpload }) => {
                 onChange={handleFileInput}
               />
 
-              <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gray-100 rounded-full flex items-center justify-center mb-4 sm:mb-6">
                 {error ? (
-                  <AlertCircle className="w-10 h-10 text-red-500" />
+                  <AlertCircle className="w-8 h-8 sm:w-10 sm:h-10 text-red-500" />
                 ) : (
-                  <Upload className="w-10 h-10 text-gray-400" />
+                  <Upload className="w-8 h-8 sm:w-10 sm:h-10 text-gray-400" />
                 )}
               </div>
 
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 text-center px-2">
                 {error ? "Upload Failed" : "Upload your image"}
               </h3>
 
-              <p className="text-gray-500 text-center max-w-sm mb-8">
+              <p className="text-sm sm:text-base text-gray-500 text-center max-w-sm mb-6 sm:mb-8 px-4">
                 {error ? (
                   <span className="text-red-500">{error}</span>
                 ) : (

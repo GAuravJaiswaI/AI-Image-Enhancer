@@ -30,29 +30,29 @@ const Stars = (props) => {
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-[600px] flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50">
+    <section className="relative w-full h-[500px] sm:h-[600px] flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50">
       <div className="absolute inset-0 z-0 opacity-50">
         <Canvas camera={{ position: [0, 0, 1] }}>
           <Stars />
         </Canvas>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 text-center">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-black/5 text-black text-xs font-semibold tracking-wide mb-6">
+          <span className="inline-block py-1 px-2 sm:px-3 rounded-full bg-black/5 text-black text-xs font-semibold tracking-wide mb-4 sm:mb-6">
             ✨ AI-POWERED ENHANCEMENT
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 tracking-tight mb-6">
-            Enhance Your Images <br />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 tracking-tight mb-4 sm:mb-6 px-2">
+            Enhance Your Images <br className="hidden sm:block" />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
               Instantly with AI
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 sm:mb-10 px-4">
             Upscale, denoise, and restore your photos with our cutting-edge AI technology.
             Professional quality results in seconds.
           </p>

@@ -12,9 +12,9 @@ const PricingCard = ({ title, price, description, features, popular, delay }) =>
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
       className={cn(
-        "flex flex-col p-8 rounded-3xl border transition-all duration-300 relative",
+        "flex flex-col p-6 sm:p-8 rounded-2xl sm:rounded-3xl border transition-all duration-300 relative",
         popular
-          ? "border-black shadow-xl bg-white scale-105 z-10"
+          ? "border-black shadow-xl bg-white sm:scale-105 z-10"
           : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-lg"
       )}
     >
@@ -26,19 +26,19 @@ const PricingCard = ({ title, price, description, features, popular, delay }) =>
         </div>
       )}
 
-      <div className="mb-8">
-        <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
+      <div className="mb-6 sm:mb-8">
+        <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{title}</h3>
         <div className="flex items-baseline gap-1">
-          <span className="text-4xl font-bold tracking-tight text-gray-900">${price}</span>
+          <span className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">${price}</span>
           <span className="text-sm text-gray-500">/mo</span>
         </div>
-        <p className="text-sm text-gray-500 mt-2">{description}</p>
+        <p className="text-xs sm:text-sm text-gray-500 mt-2">{description}</p>
       </div>
 
-      <ul className="space-y-4 flex-1 mb-8">
+      <ul className="space-y-3 sm:space-y-4 flex-1 mb-6 sm:mb-8">
         {features.map((feature, idx) => (
-          <li key={idx} className="flex items-start gap-3 text-sm text-gray-700">
-            <Check className="w-5 h-5 text-green-500 shrink-0" />
+          <li key={idx} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-gray-700">
+            <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 shrink-0 mt-0.5" />
             <span>{feature}</span>
           </li>
         ))}
@@ -46,7 +46,7 @@ const PricingCard = ({ title, price, description, features, popular, delay }) =>
 
       <Button
         className={cn(
-          "w-full py-6 text-base font-semibold",
+          "w-full py-4 sm:py-6 text-sm sm:text-base font-semibold",
           popular ? "bg-black text-white hover:bg-gray-800" : "bg-gray-100 text-gray-900 hover:bg-gray-200"
         )}
       >
@@ -58,18 +58,18 @@ const PricingCard = ({ title, price, description, features, popular, delay }) =>
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-4">
+    <section id="pricing" className="py-12 sm:py-16 md:py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 mb-3 sm:mb-4 px-2">
             Simple Pricing
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
             Choose the perfect plan for your needs. No hidden fees.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 items-start">
           <PricingCard
             title="Starter"
             price={0}
@@ -84,7 +84,7 @@ const Pricing = () => {
           />
           <PricingCard
             title="Pro"
-            price={19}
+            price={9}
             description="For professionals who need the best."
             popular={true}
             features={[
@@ -92,19 +92,17 @@ const Pricing = () => {
               "4K Ultra HD export",
               "Priority processing",
               "Commercial license",
-              "24/7 Support"
             ]}
             delay={0.2}
           />
           <PricingCard
             title="Enterprise"
-            price={49}
+            price={19}
             description="For teams and high-volume needs."
             features={[
               "Everything in Pro",
               "API Access",
               "Custom integration",
-              "Dedicated account manager",
               "SSO & Advanced Security"
             ]}
             delay={0.3}
