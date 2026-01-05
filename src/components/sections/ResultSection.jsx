@@ -22,7 +22,7 @@ const ResultSection = ({ originalImage, enhancedImage, loading, onReset }) => {
   if (!originalImage) return null;
 
   return (
-    <section className="container mx-auto px-4 -mt-20 relative z-20 mb-20">
+    <section className="container mx-auto px-4 sm:px-6 -mt-10 sm:-mt-20 relative z-20 mb-12 sm:mb-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -30,10 +30,10 @@ const ResultSection = ({ originalImage, enhancedImage, loading, onReset }) => {
       >
         <Card className="max-w-6xl mx-auto overflow-hidden shadow-2xl border-0 bg-white">
           <CardContent className="p-0">
-            <div className="grid grid-cols-1 lg:grid-cols-3 min-h-[600px]">
+            <div className="grid grid-cols-1 lg:grid-cols-3 min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]">
 
               {/* Image Viewer Area */}
-              <div className="lg:col-span-2 relative bg-gray-100 overflow-hidden flex items-center justify-center p-4">
+              <div className="lg:col-span-2 relative bg-gray-100 overflow-hidden flex items-center justify-center p-2 sm:p-4">
                 <div className="relative w-full h-full max-h-[600px] aspect-video rounded-lg overflow-hidden shadow-inner bg-[url('https://transparenttextures.com/patterns/checkerboard.png')]">
 
                   {loading ? (
@@ -108,29 +108,29 @@ const ResultSection = ({ originalImage, enhancedImage, loading, onReset }) => {
               </div>
 
               {/* Sidebar / Controls */}
-              <div className="p-8 flex flex-col justify-between border-l border-gray-100 bg-white">
+              <div className="p-4 sm:p-6 lg:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-gray-100 bg-white">
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-2xl font-bold text-gray-900">Result</h2>
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
+                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Result</h2>
                     <Badge variant={enhancedImage ? "default" : "secondary"}>
                       {loading ? "Processing" : enhancedImage ? "Enhanced" : "Original"}
                     </Badge>
                   </div>
 
-                  <div className="space-y-6">
+                  <div className="space-y-4 sm:space-y-6">
                     <div>
-                      <h3 className="text-sm font-medium text-gray-500 mb-3">Comparison View</h3>
-                      <p className="text-xs text-gray-400 mb-4">
+                      <h3 className="text-sm font-medium text-gray-500 mb-2 sm:mb-3">Comparison View</h3>
+                      <p className="text-xs text-gray-400 mb-3 sm:mb-4">
                         Drag the slider on the image to compare the original and enhanced versions.
                       </p>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="text-center p-4 bg-gray-50 rounded-lg">
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                        <div className="text-center p-3 sm:p-4 bg-gray-50 rounded-lg">
                             <span className="block text-xs font-bold text-gray-400 uppercase">Original</span>
                             <span className="text-sm font-medium text-gray-900">Before</span>
                         </div>
-                         <div className="text-center p-4 bg-gray-50 rounded-lg">
+                         <div className="text-center p-3 sm:p-4 bg-gray-50 rounded-lg">
                             <span className="block text-xs font-bold text-blue-500 uppercase">Enhanced</span>
                             <span className="text-sm font-medium text-gray-900">After</span>
                         </div>
@@ -138,7 +138,7 @@ const ResultSection = ({ originalImage, enhancedImage, loading, onReset }) => {
                   </div>
                 </div>
 
-                <div className="space-y-3 mt-8">
+                <div className="space-y-2 sm:space-y-3 mt-6 sm:mt-8">
                   <Button
                     className="w-full"
                     size="lg"
@@ -146,7 +146,7 @@ const ResultSection = ({ originalImage, enhancedImage, loading, onReset }) => {
                     disabled={!enhancedImage || loading}
                   >
                     <Download className="w-4 h-4 mr-2" />
-                    Download Enhanced Image
+                    <span className="text-sm sm:text-base">Download Enhanced Image</span>
                   </Button>
 
                   <Button
@@ -156,7 +156,7 @@ const ResultSection = ({ originalImage, enhancedImage, loading, onReset }) => {
                     onClick={onReset}
                   >
                     <RefreshCw className="w-4 h-4 mr-2" />
-                    Upload New Image
+                    <span className="text-sm sm:text-base">Upload New Image</span>
                   </Button>
                 </div>
               </div>
