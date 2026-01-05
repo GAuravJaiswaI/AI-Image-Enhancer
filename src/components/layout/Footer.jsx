@@ -9,11 +9,11 @@ const Footer = () => {
             <div className="w-6 h-6 bg-black rounded flex items-center justify-center">
               <span className="text-white font-bold text-xs">AI</span>
             </div>
-            <span className="text-sm sm:text-base font-bold text-gray-900">Enhancer</span>
+            <span className="text-sm sm:text-base font-bold text-gray-900">Image Enhancer</span>
           </div>
 
           <div className="text-xs sm:text-sm text-gray-500 text-center md:text-left">
-            © {new Date().getFullYear()} AI Enhancer. All rights reserved.
+            © {new Date().getFullYear()} AI Image Enhancer. All rights reserved.
           </div>
 
           <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
